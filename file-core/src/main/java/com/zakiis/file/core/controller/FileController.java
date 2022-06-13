@@ -19,7 +19,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/v1/file-core/")
+@RequestMapping("/v1/file-core/file")
 public class FileController {
 	
 	@Autowired

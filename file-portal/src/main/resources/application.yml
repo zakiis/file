@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: file-core
+    
+  data:    mongodb:      uri: mongodb://root:123456@192.168.137.105:27017/file-core?authSource=admin
+
+server:  port: 8081
+  servlet:    context-path: /
+    
+file:
+  portal:
+    file-core-url: http://localhost:8080
