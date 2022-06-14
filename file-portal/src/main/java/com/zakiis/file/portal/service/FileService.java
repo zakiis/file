@@ -3,6 +3,7 @@ package com.zakiis.file.portal.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -11,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.zakiis.file.portal.boot.autoconfigure.properties.FilePortalProperties;
 import com.zakiis.file.portal.domain.constants.CommonConstants;
 import com.zakiis.file.portal.domain.dto.ResponseDTO;
+import com.zakiis.file.portal.exception.ServiceException;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -29,6 +31,10 @@ public class FileService {
 			.contentType(MediaType.APPLICATION_OCTET_STREAM)
 			.body(BodyInserters.fromDataBuffers(body))
 			.retrieve()
+			.onStatus(HttpStatus::isError, response -> {
+				return response.bodyToMono(new ParameterizedTypeReference<ResponseDTO<Object>>() {})
+					.map(dto -> new ServiceException(dto.getCode(), dto.getMessage()));
+			})
 			.bodyToMono(new ParameterizedTypeReference<ResponseDTO<Object>>() {});
 	}
 	

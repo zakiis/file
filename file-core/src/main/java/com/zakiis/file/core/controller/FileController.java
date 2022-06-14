@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zakiis.file.core.domain.dto.ResponseDTO;
+import com.zakiis.file.core.exception.ErrorEnum;
+import com.zakiis.file.core.exception.ServiceException;
 import com.zakiis.file.core.service.FileService;
 
 import reactor.core.publisher.Flux;
@@ -27,7 +29,7 @@ public class FileController {
 
 	@PostMapping("{bucket}/{fileKey}")
 	public Mono<ResponseDTO<Object>> uploadFile(@PathVariable String bucket, @PathVariable String fileKey, ServerHttpRequest request) throws IOException {
-		return fileService.saveFile(request.getBody(), bucket, fileKey)
+		return fileService.saveFile(request.getBody().switchIfEmpty(Mono.error(new ServiceException(ErrorEnum.FILE_EMPTY))), bucket, fileKey)
 			.then(Mono.just(ResponseDTO.ok()));
 	}
 	

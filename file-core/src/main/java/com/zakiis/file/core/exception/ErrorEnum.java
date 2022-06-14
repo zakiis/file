@@ -7,6 +7,7 @@ public enum ErrorEnum implements IError {
 	WRITE_FILE_FAILED("100003", "write file failed"),
 	READ_FILE_FAILED("100004", "read file failed"),
 	ARCHIVE_FILE_CANT_CHANGED("100005", "archive file can't be changed"),
+	FILE_EMPTY("100006", "file can't be empty"),
 	;
 	String code;
 	String message;
