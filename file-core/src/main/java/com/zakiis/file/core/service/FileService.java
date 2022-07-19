@@ -54,7 +54,7 @@ public class FileService {
 	}
 	
 	private Mono<FileEntity> insertFile(String bucket, String fileKey, Flux<DataBuffer> body) {
-		String directory = fileCoreProperties.getBasePath() + "/" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+		String directory = fileCoreProperties.getBasePath() + "/" + bucket + "/" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
 		String filePathStr = directory + "/" + fileKey;
 		FileEntity fileEntity = FileTool.buildFileEntity(fileKey, filePathStr);
 		Mono<FileEntity> insertFileEntityMono = mongoTemplate.insert(fileEntity, bucket);
