@@ -9,4 +9,4 @@ server:  port: 8080
     
 file:
   core:
-    base-path: target
+    base-path: /wls/deploy/iobs
