@@ -8,7 +8,7 @@ metadata:
     app: file-core
 spec:
   ports:
-    - protocol: HTTP
+    - protocol: TCP
       port: 8080                                    # service对外提供服务的端口
       targetPort: 8080
       name: file-core
@@ -89,7 +89,6 @@ spec:
         hostPath: 
           path: /data/logs
           type: Directory
-  podManagementPolicy: "Parallel"
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
