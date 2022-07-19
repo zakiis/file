@@ -8,12 +8,11 @@ metadata:
     app: file-portal
 spec:
   ports:
-  - name: HTTP
+  - name: http
     protocol: TCP
     port: 8081                                    # service对外提供服务的端口
     targetPort: 8081
     nodePort: 8081
-  clusterIP: None
   type: NodePort
   selector:
     app: file-portal
