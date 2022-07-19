@@ -9,4 +9,4 @@ server:  port: 8081
     
 file:
   portal:
-    file-core-url: http://localhost:8080
+    file-core-url: http://file-core:8080
