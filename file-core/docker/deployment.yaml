@@ -72,6 +72,8 @@ spec:
         - mountPath: /wls/deploy/logs
           name: logs
           subPathExpr: $(POD_NAME)
+        - mountPath: /wls/deploy/iobs
+          name: iobs
       initContainers: #先在宿主机初始化目录：mkdir -p /data/logs && groupadd -g 1001 -r wls && useradd -r -g 1001 -u 1001 wls81 && chown wls81:wls /data/logs/
       - name: init-logdir
         image: registry.cn-hangzhou.aliyuncs.com/zakiis/file-core:0.0.5
@@ -88,6 +90,10 @@ spec:
       - name: logs
         hostPath: 
           path: /data/logs
+          type: Directory
+      - name: iobs
+        hostPath:
+          path: /nfsc/share/iobs
           type: Directory
 ---
 apiVersion: autoscaling/v1

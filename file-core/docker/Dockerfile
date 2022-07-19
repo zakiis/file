@@ -10,6 +10,7 @@ ARG JAR_FILE
 RUN addgroup -g 1001 -S wls
 RUN adduser -S -u 1001 -G wls wls81
 RUN mkdir -p /wls/deploy/logs && touch /wls/deploy/logs/app.log
+RUN mkdir -p /wls/deploy/iobs
 # copy当前工程jar包至容器内
 COPY ${JAR_FILE} /wls/deploy/app.jar
 
