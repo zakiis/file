@@ -8,10 +8,10 @@ metadata:
     app: file-core
 spec:
   ports:
-  - protocol: TCP
+  - name: http
+    protocol: TCP
     port: 8080                                    # service对外提供服务的端口
     targetPort: 8080
-    name: http
   type: ClusterIP
   selector:
     app: file-core
