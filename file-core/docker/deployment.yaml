@@ -8,11 +8,10 @@ metadata:
     app: file-core
 spec:
   ports:
-    - protocol: TCP
-      port: 8080                                    # service对外提供服务的端口
-      targetPort: 8080
-      name: file-core
-  # clusterIP: None
+  - protocol: TCP
+    port: 8080                                    # service对外提供服务的端口
+    targetPort: 8080
+    name: http
   type: ClusterIP
   selector:
     app: file-core
@@ -68,6 +67,8 @@ spec:
               fieldPath: metadata.name
         - name: APP_TIMEZONE
           value: GMT+8
+        - name: ACTIVE_PROFILE
+          value: prd
         volumeMounts:
         - mountPath: /wls/deploy/logs
           name: logs

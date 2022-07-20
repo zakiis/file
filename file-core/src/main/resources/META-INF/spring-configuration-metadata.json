@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "file.core",
+      "type": "com.zakiis.file.core.boot.autoconfigure.properties.FileCoreProperties",
+      "sourceType": "com.zakiis.file.core.boot.autoconfigure.properties.FileCoreProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "file.core.base-path",
+      "type": "java.lang.String",
+      "description": "base path of file saved",
+      "sourceType": "com.zakiis.file.core.boot.autoconfigure.properties.FileCoreProperties"
+    }
+  ],
+  "hints": []
+}

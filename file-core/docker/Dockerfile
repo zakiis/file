@@ -24,4 +24,5 @@ WORKDIR /wls/deploy
 ENTRYPOINT java -server -Duser.timezone=${APP_TIMEZONE} \
 -Xms512m -Xmx512m -Xss1M -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=64m \
 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs \
--jar /wls/deploy/app.jar
+-jar /wls/deploy/app.jar \
+--spring.profiles.active=${ACTIVE_PROFILE}

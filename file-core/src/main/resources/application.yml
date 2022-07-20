@@ -1,12 +1,7 @@
 spring:
   application:
     name: file-core
-    
-  data:    mongodb:      uri: mongodb://root:123456@192.168.137.105:27017/file-core?authSource=admin
+  profiles:    active: "@active@"
 
 server:  port: 8080
   servlet:    context-path: /
-    
-file:
-  core:
-    base-path: /wls/deploy/iobs

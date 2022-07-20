@@ -1,0 +1,6 @@
+spring: 
+  data:    mongodb:      uri: mongodb://root:123456@192.168.137.105:27017/file-core?authSource=admin
+
+file: 
+  core:
+    base-path: /wls/deploy/iobs

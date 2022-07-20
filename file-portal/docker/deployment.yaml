@@ -68,6 +68,8 @@ spec:
               fieldPath: metadata.name
         - name: APP_TIMEZONE
           value: GMT+8
+        - name: ACTIVE_PROFILE
+          value: prd
         volumeMounts:
         - mountPath: /wls/deploy/logs
           name: logs

@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "file.portal",
+      "type": "com.zakiis.file.portal.boot.autoconfigure.properties.FilePortalProperties",
+      "sourceType": "com.zakiis.file.portal.boot.autoconfigure.properties.FilePortalProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "file.portal.file-core-url",
+      "type": "java.lang.String",
+      "description": "file core url",
+      "sourceType": "com.zakiis.file.portal.boot.autoconfigure.properties.FilePortalProperties"
+    }
+  ],
+  "hints": []
+}

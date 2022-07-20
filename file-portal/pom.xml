@@ -63,6 +63,24 @@
 		</dependency>
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<active>dev</active>
+			</properties>
+		</profile>
+		<profile>
+			<id>prd</id>
+			<properties>
+				<active>prd</active>
+			</properties>
+		</profile>
+	</profiles>
+	
 	<build>
 		<plugins>
 			<plugin>
